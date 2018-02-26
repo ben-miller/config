@@ -63,10 +63,9 @@
  '(custom-safe-themes
    (quote
     ("83faf27892c7119f6016e3609f346d3dae3516dede8fd8a5940373d98f615b4e" "f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" "091919105399907867eb722eca685102529fe8afb6840800750dcd2bab63d0b2" default)))
- ;'(org-agenda-files (quote ("~/life/notes/notes/life.org")))
  '(package-selected-packages
    (quote
-    (helm-ag tj-mode web-mode json-mode recentf-ext labburn-theme zenburn-theme org-trello evil cider))))
+    (anki-editor helm-ag tj-mode web-mode json-mode recentf-ext labburn-theme zenburn-theme org-trello evil cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
