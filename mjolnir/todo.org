@@ -1,0 +1,2 @@
+* TODO command for cycling window through monitors
+* TODO command for halving window up or down or full
