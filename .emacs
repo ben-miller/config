@@ -20,8 +20,7 @@
 
 (require 'cl)
 (setq custom-safe-themes t)
-(if window-system
-  (load-theme 'labburn))
+(load-theme 'labburn)
 
 (add-to-list 'load-path "~/.emacs.d/manual-downloads/")
 
@@ -40,6 +39,10 @@
 	 (find-file (concat thoughts-directory (format-time-string "/%Y-%m-%d.org")))
 	 (if (= (buffer-size) 0)
            (progn (insert (format-time-string "%A, %B %e, %Y"))))))
+
+(defun daily-header ()
+  (interactive)
+  (insert (format-time-string "* %Y-%m-%d")))
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (setq require-final-newline t)
@@ -73,6 +76,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+; LHF == "Low-Hanging Fruit"
+; BFP == "Big Fucking Problem"
+(setq org-todo-keywords '((sequence "LHF" "BFP" "TODO" "DONE")))
 
 (defun notes-dir ()
   (interactive)
@@ -86,3 +92,8 @@
 
 (setq auto-save-file-name-transforms
   `((".*" "~/.emacs-saves/" t)))
+
+(define-key input-decode-map "\033\033[1;10A" [S-M-up])
+(define-key input-decode-map "\033\033[1;10B" [S-M-down])
+(define-key input-decode-map "\033\033[1;10C" [S-M-right])
+(define-key input-decode-map "\033\033[1;10D" [S-M-left])

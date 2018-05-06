@@ -1,8 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/bmiller/.rbenv'
-let g:netrw_dirhist_2='/Users/bmiller/src/shuffler.js'
-let g:netrw_dirhist_3='/Users/bmiller/prj/docker-zsh/zprezto'
-let g:netrw_dirhist_4='/Users/bmiller/prj/docker-pipenv'
-let g:netrw_dirhist_5='/Users/bmiller/prj/docker/docker-ts'
-let g:netrw_dirhist_6='/Users/bmiller/prj/docker/docker-dev'
+let g:netrw_dirhist_cnt =0
