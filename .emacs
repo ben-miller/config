@@ -1,16 +1,6 @@
+;(package-initialize)
 
-(if window-system
-  (tool-bar-mode -1))
-
-(setq ring-bell-function 'ignore)
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
-(require 'package) ;; You might already have this line
+(require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 (when (< emacs-major-version 24)
@@ -21,8 +11,6 @@
 (require 'cl)
 (setq custom-safe-themes t)
 (load-theme 'labburn)
-
-(add-to-list 'load-path "~/.emacs.d/manual-downloads/")
 
 (setq home-directory "/Users/bmiller/")
 (setq org-directory (concat home-directory "life/"))
@@ -57,27 +45,12 @@
 (setq inhibit-startup-message t)
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
+(if window-system
+  (tool-bar-mode -1))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("83faf27892c7119f6016e3609f346d3dae3516dede8fd8a5940373d98f615b4e" "f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" "091919105399907867eb722eca685102529fe8afb6840800750dcd2bab63d0b2" default)))
- '(package-selected-packages
-   (quote
-    (anki-editor helm-ag tj-mode web-mode json-mode recentf-ext labburn-theme zenburn-theme org-trello evil cider))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq ring-bell-function 'ignore)
 
-; LHF == "Low-Hanging Fruit"
-; BFP == "Big Fucking Problem"
+
 (setq org-todo-keywords '((sequence "LHF" "BFP" "TODO" "DONE")))
 
 (defun notes-dir ()
@@ -97,3 +70,15 @@
 (define-key input-decode-map "\033\033[1;10B" [S-M-down])
 (define-key input-decode-map "\033\033[1;10C" [S-M-right])
 (define-key input-decode-map "\033\033[1;10D" [S-M-left])
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (orgbox orgnav org-parser org labburn-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
