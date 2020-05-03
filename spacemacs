@@ -2,10 +2,12 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-(define-key input-decode-map "\033\033[1;10A" [S-M-up])
-(define-key input-decode-map "\033\033[1;10B" [S-M-down])
-(define-key input-decode-map "\033\033[1;10C" [S-M-right])
-(define-key input-decode-map "\033\033[1;10D" [S-M-left])
+(add-hook 'tty-setup-hook (lambda () 
+                            (define-key input-decode-map "\033\033[1;10A" [S-M-up])
+                            (define-key input-decode-map "\033\033[1;10B" [S-M-down])
+                            (define-key input-decode-map "\033\033[1;10C" [S-M-right])
+                            (define-key input-decode-map "\033\033[1;10D" [S-M-left])
+                            ))
 
 (setq home-directory "/Users/bmiller/")
 (setq org-directory (concat home-directory "life/"))
@@ -85,6 +87,13 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     go
+     asciidoc
+     shell-scripts
+     markdown
+     sql
+     html
+     yaml
      javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -104,6 +113,7 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     kotlin
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -369,7 +379,7 @@ you should place your code here."
   (with-eval-after-load 'org
     (setq org-blank-before-new-entry nil)
     (setq org-M-RET-may-split-line nil)
-    (define-key org-mode-map (kbd "M-o") (lambda () (interactive)
+    (define-key org-mode-map (kbd "ø") (lambda () (interactive)
                                              (move-end-of-line nil)
                                              (org-meta-return)
                                              (move-end-of-line nil)
@@ -387,7 +397,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit-popup git-commit ghub with-editor evil-magit magit web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (go-guru go-eldoc go-mode adoc-mode markup-faces insert-shebang fish-mode sql-indent mmm-mode markdown-toc markdown-mode gh-md web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode powerline hydra lv parent-mode projectile pkg-info epl flx highlight transient smartparens iedit anzu evil goto-chg bind-map bind-key packed helm avy helm-core popup f s dash git-timemachine yaml-mode tern async let-alist magit-popup git-commit ghub with-editor evil-magit magit web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

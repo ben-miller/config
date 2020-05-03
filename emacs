@@ -9,8 +9,8 @@
 (setq home-directory "/Users/bmiller/")
 (setq org-directory (concat home-directory "life/"))
 
-(load (concat home-directory ".emacs.d/lib/transpose-frame.el"))
-(load (concat home-directory ".emacs.d/lib/move-text.el"))
+;(load (concat home-directory ".emacs.d/lib/transpose-frame.el"))
+;(load (concat home-directory ".emacs.d/lib/move-text.el"))
 
 ;; Enable mouse support
 (unless window-system
@@ -89,3 +89,8 @@
 (menu-bar-mode -1)
 (setq vc-follow-symlinks t)
 (setq inhibit-startup-message t)
+
+(define-key input-decode-map "\033\033[1;10A" [S-M-up])
+(define-key input-decode-map "\033\033[1;10B" [S-M-down])
+(define-key input-decode-map "\033\033[1;10C" [S-M-right])
+(define-key input-decode-map "\033\033[1;10D" [S-M-left])
